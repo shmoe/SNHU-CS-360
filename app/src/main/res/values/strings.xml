@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">CS-360 Fitness App</string>
+    <string name="username_prompt">Username:</string>
+    <string name="password_prompt">Password:</string>
+    <string name="button_new_account">Create New Account</string>
+    <string name="button_log_in">Log In</string>
+    <string name="grid_title">Progress Grid</string>
+    <string name="error_text_new_account">Username already exists or a field was left blank</string>
+    <string name="error_text_log_in">Wrong username or password</string>
+    <string name="action_mode_edit">Edit</string>
+    <string name="action_mode_delete">Delete</string>
+    <string name="action_mode_back">Back</string>
+    <string name="dialog_fragment_add_weight">Add Weight</string>
+    <string name="dialog_fragment_edit_weight">Edit Weight</string>
+    <string name="dialog_fragment_positive">OK</string>
+    <string name="dialog_fragment_negative">Cancel</string>
+    <string name="dialog_fragment_set_goal_weight">Enter your goal weight</string>
+    <string name="dialog_send_sms_permission_rationale_title">Why we need permission to send SMS</string>
+    <string name="dialog_send_sms_permission_rationale_text">By giving us permission to send you SMS messages, we can send you real-time notifications for when you hit your goal weight.</string>
+    <string name="dialog_fragment_casual_negative">No Thanks</string>
+    <string name="default_phone_number">(555) 521-5554</string>
+</resources>
