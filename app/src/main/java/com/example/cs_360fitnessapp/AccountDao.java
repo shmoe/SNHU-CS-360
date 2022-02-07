@@ -13,6 +13,9 @@ public interface AccountDao {
     @Query("SELECT password FROM accounts WHERE username = :username")
     public @Nullable String getPassword(String username);
 
+    @Query("SELECT salt FROM accounts WHERE username = :username")
+    public @Nullable byte [] getSalt(String username);
+
     @Query("SELECT goal_weight FROM accounts WHERE username = :username")
     public float getGoalWeight(String username);
 

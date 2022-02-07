@@ -16,12 +16,17 @@ public class Account {
     @ColumnInfo(name="password")
     private String mPassword = "";
 
+    @NonNull
+    @ColumnInfo(name="salt", typeAffinity = ColumnInfo.BLOB)
+    private byte [] mSalt = new byte [16];
+
     @ColumnInfo(name="goal_weight")
     private float mGoalWeight = 0.f;
 
-    public Account(@NonNull String username, @NonNull String password){
+    public Account(@NonNull String username, @NonNull String password, @NonNull byte [] salt){
         mUsername = username;
         mPassword = password;
+        mSalt = salt;
     }
 
     @NonNull
@@ -30,7 +35,7 @@ public class Account {
     }
 
     public void setUsername(@NonNull String username) {
-        this.mUsername = mUsername;
+        this.mUsername = username;
     }
 
     @NonNull
@@ -41,6 +46,11 @@ public class Account {
     public void setPassword(@NonNull String password) {
         this.mPassword = password;
     }
+
+    @NonNull
+    public byte [] getSalt() { return mSalt; }
+
+    public void setSalt(@NonNull byte [] salt) { this.mSalt = salt; }
 
     public float getGoalWeight() { return mGoalWeight; }
 
