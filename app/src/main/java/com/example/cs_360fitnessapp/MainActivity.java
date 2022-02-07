@@ -7,13 +7,14 @@ import androidx.fragment.app.FragmentManager;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import java.nio.charset.StandardCharsets;
 
 public class MainActivity extends AppCompatActivity implements TextWatcher,
                                 SetGoalWeightDialogFragment.OnSetGoalWeightListener,
@@ -32,18 +33,14 @@ public class MainActivity extends AppCompatActivity implements TextWatcher,
         if(user.trim().length() <= 0 || pass.trim().length() <= 0)
             return false;
 
-        if(mDatabase.accountDao().getPassword(user) == null) {
-            mDatabase.accountDao().insertAccount(new Account(user, pass));
-            return true;
-        } else {
-            return false;
-        }
+        return mDatabase.accountDao().getPassword(user) == null;
     }
 
     private boolean validateUsernamePasswordPair(String user, String pass){
-        String dbPassword = mDatabase.accountDao().getPassword(user);
+        String dbHash = mDatabase.accountDao().getPassword(user);
+        byte [] dbSalt = mDatabase.accountDao().getSalt(user);
 
-        return (dbPassword != null) && dbPassword.equals(pass);
+        return (dbHash != null) && (dbSalt != null) && dbHash.equals(HashAndSalter.getHash(pass, dbSalt));
     }
 
     private boolean hasSendSMSPermissions() {
@@ -109,7 +106,9 @@ public class MainActivity extends AppCompatActivity implements TextWatcher,
         String newUsername = mUsernameEditText.getText().toString();
         String newPassword = mPasswordEditText.getText().toString();
         if(validateNewUsernamePasswordPair(newUsername, newPassword)) {
-            mDatabase.accountDao().insertAccount(new Account(newUsername, newPassword));
+            byte [] salt = HashAndSalter.getSalt();
+            String hash = HashAndSalter.getHash(newPassword, salt);
+            mDatabase.accountDao().insertAccount(new Account(newUsername, hash, salt));
 
             mSessionToken = newUsername;
 
