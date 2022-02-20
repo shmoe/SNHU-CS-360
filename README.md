@@ -1,5 +1,10 @@
 # SNHU-CS-360
 
+## Screenshots
+
+![Screenshot 1](res/Screenshot_20220219_215930.png) ![Screenshot 2](res/Screenshot_20220219_220058.png) ![Screenshot 3](res/Screenshot_20220219_220128.png)
+
+![Screenshot 4](res/Screenshot_20220219_220240.png) ![Screenshot 5](res/Screenshot_20220219_220258.png)
 
 ## Briefly summarize the requirements and goals of the app you developed. What user needs was this app designed to address
 The requirements for this app were to have a traditional log-in system capable of creating new accounts and logging into existing accounts. It was also necessary to implement a feature using SMS notifications and provide a dialog that requests the user for the necessary permissions at an appropriate time.
