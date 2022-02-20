@@ -9,8 +9,9 @@
 
     <LinearLayout
         android:layout_width="334dp"
-        android:layout_height="254dp"
-        android:background="@color/purple_200"
+        android:layout_height="278dp"
+        android:alpha="0.9"
+        android:background="@color/white"
         android:orientation="vertical"
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
@@ -23,41 +24,39 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.257">
 
-        <TextView
-            android:id="@+id/userName_prompt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#FFFFFF"
-            android:text="@string/username_prompt" />
-
         <EditText
             android:id="@+id/editUserNameText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
             android:background="#FFFFFF"
+            android:backgroundTint="@color/material_on_surface_stroke"
             android:ems="10"
-            android:inputType="textPersonName" />
-
-        <View
-            android:id="@+id/divider"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="?android:attr/listDivider" />
-
-        <TextView
-            android:id="@+id/password_prompt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#FFFFFF"
-            android:text="@string/password_prompt" />
+            android:hint="@string/username_prompt"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:paddingVertical="10dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:textColorHint="#757575" />
 
         <EditText
             android:id="@+id/editPasswordText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
             android:background="#FFFFFF"
+            android:backgroundTint="@color/material_on_surface_stroke"
             android:ems="10"
-            android:inputType="textPassword" />
+            android:hint="@string/password_prompt"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:paddingVertical="10dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:textColorHint="#757575" />
 
         <TextView
             android:id="@+id/loginActivityErrorTextView"
@@ -70,6 +69,7 @@
             android:id="@+id/buttonNewAccount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="48dp"
             android:onClick="onButtonNewAccountClick"
             android:text="@string/button_new_account" />
 
@@ -77,6 +77,7 @@
             android:id="@+id/buttonLogIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="48dp"
             android:onClick="onButtonLogInClick"
             android:text="@string/button_log_in" />
     </LinearLayout>
